@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.debug.core.launchConfigurationTypes">
+      <launchConfigurationType
+            delegate="com.kokakiwi.eclipse.ddt.launch.DCPULauncher"
+            id="com.kokakiwi.eclipse.ddt.emulator.launch"
+            modes="run,debug"
+            name="DCPU16 Launch Configuration"
+            public="true">
+      </launchConfigurationType>
+   </extension>
+   <extension
+         point="org.eclipse.debug.ui.launchShortcuts">
+      <shortcut
+            class="com.kokakiwi.eclipse.ddt.emulator.launch.DCPULaunchShortcut"
+            id="com.kokakiwi.eclipse.ddt.emulator.launchShortcut"
+            label="DCPU16"
+            modes="run,debug">
+         
+         <contextualLaunch><enablement>
+            <with
+                  variable="selection">
+               <count
+                     value="1">
+               </count>
+               <iterate>
+                  <or>
+                     <test
+                           property="org.eclipse.debug.ui.matchesPattern"
+                           value="*.dasm">
+                     </test>
+                  </or>
+               </iterate>
+            </with>
+         </enablement></contextualLaunch>
+      </shortcut>
+   </extension>
+   <extension
+         id="com.kokakiwi.eclipse.ddt.emulator.nature"
+         name="DCPU16 Nature"
+         point="org.eclipse.core.resources.natures">
+      <runtime>
+         <run
+               class="com.kokakiwi.eclipse.ddt.emulator.base.DCPUNature">
+         </run>
+      </runtime>
+      <builder
+            id="com.kokakiwi.eclipse.ddt.emulator.builder">
+      </builder>
+   </extension>
+   <extension
+         id="com.kokakiwi.eclipse.ddt.emulator.builder"
+         name="DCPU16 Builder"
+         point="org.eclipse.core.resources.builders">
+      <builder
+            hasNature="false"
+            isConfigurable="false">
+         <run
+               class="com.kokakiwi.eclipse.ddt.emulator.base.DCPUBuilder">
+         </run>
+      </builder>
+   </extension>
+   <extension
+         point="org.eclipse.ui.popupMenus">
+      <objectContribution
+            adaptable="true"
+            id="com.kokakiwi.eclipse.ddt.emulator.contribution"
+            nameFilter="*"
+            objectClass="org.eclipse.core.resources.IProject">
+         <action
+               class="com.kokakiwi.eclipse.ddt.emulator.base.ToggleNatureAction"
+               enablesFor="+"
+               id="com.kokakiwi.eclipse.ddt.emulator.addRemoveNatureAction"
+               label="Toggle DCPU16 Project"
+               menubarPath="additions">
+         </action>
+      </objectContribution>
+   </extension>
+   <extension
+         point="org.eclipse.debug.ui.launchConfigurationTabGroups">
+      <launchConfigurationTabGroup
+            class="com.kokakiwi.eclipse.ddt.emulator.launch.LaunchTabGroup"
+            id="com.kokakiwi.eclipse.ddt.emulator.launchTabGroup"
+            type="com.kokakiwi.eclipse.ddt.emulator.launch">
+      </launchConfigurationTabGroup>
+   </extension>
+
+
+</plugin>

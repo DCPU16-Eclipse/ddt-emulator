@@ -1,0 +1,25 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: DDT Emulator
+Bundle-SymbolicName: com.kokakiwi.eclipse.ddt.emulator;singleton:=true
+Bundle-Version: 0.1.0.qualifier
+Bundle-Activator: com.kokakiwi.eclipse.ddt.emulator.Activator
+Bundle-Vendor: Koka El Kiwi
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.eclipse.core.resources;bundle-version="3.7.101",
+ org.eclipse.debug.core;bundle-version="3.7.1",
+ org.eclipse.debug.ui;bundle-version="3.7.102",
+ org.eclipse.ui.ide;bundle-version="3.7.0",
+ org.eclipse.ui.console;bundle-version="3.5.100"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-ActivationPolicy: lazy
+Bundle-ClassPath: libs/antlr-runtime-3.4.jar,
+ libs/cglib-nodep-2.1_3.jar,
+ libs/commons-codec-1.5.jar,
+ libs/commons-io-1.4.jar,
+ libs/commons-lang-2.4.jar,
+ libs/easymock-2.4.jar,
+ libs/easymockclassextension-2.4.jar,
+ libs/log4j-1.2.14.jar,
+ .
