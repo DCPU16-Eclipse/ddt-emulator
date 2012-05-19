@@ -3,6 +3,8 @@ package com.kokakiwi.eclipse.ddt.launch;
 import java.io.PrintStream;
 
 import org.eclipse.core.resources.IFile;
+import org.eclipse.core.resources.IFolder;
+import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
@@ -55,7 +57,14 @@ public class DCPULauncher implements ILaunchConfigurationDelegate
         
         ByteArrayObjectCodeWriterFactory factory = new ByteArrayObjectCodeWriterFactory();
         CoreCompiler compiler = new CoreCompiler(monitor);
-        compiler.include(file);
+        compiler.include(file, true);
+        
+        IProject project = file.getProject();
+        if (project != null)
+        {
+            IFolder includesFolder = project.getFolder("includes");
+            compiler.include(includesFolder, true);
+        }
         
         compiler.setOutput(factory);
         

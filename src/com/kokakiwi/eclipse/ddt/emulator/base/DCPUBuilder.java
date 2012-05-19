@@ -62,7 +62,7 @@ public class DCPUBuilder extends IncrementalProjectBuilder
         fdest.getParentFile().mkdirs();
         
         CoreCompiler compiler = new CoreCompiler(monitor);
-        compiler.include(file);
+        compiler.include(file, false);
         
         try
         {
