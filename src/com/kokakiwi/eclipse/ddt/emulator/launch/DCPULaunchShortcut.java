@@ -20,7 +20,6 @@ import com.kokakiwi.eclipse.ddt.emulator.Constants;
 public class DCPULaunchShortcut implements ILaunchShortcut
 {
     
-    @Override
     public void launch(ISelection selection, String mode)
     {
         if (!(selection instanceof IStructuredSelection))
@@ -74,7 +73,6 @@ public class DCPULaunchShortcut implements ILaunchShortcut
         }
     }
     
-    @Override
     public void launch(IEditorPart editor, String mode)
     {
         IEditorInput input = editor.getEditorInput();

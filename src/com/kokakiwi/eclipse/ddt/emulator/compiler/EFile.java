@@ -41,13 +41,11 @@ public class EFile extends AbstractResource
         return contents;
     }
     
-    @Override
     public String getIdentifier()
     {
         return file.getName();
     }
     
-    @Override
     public boolean isSame(IResource other)
     {
         if (other instanceof EFile)
@@ -60,7 +58,6 @@ public class EFile extends AbstractResource
         return false;
     }
     
-    @Override
     public InputStream createInputStream() throws IOException
     {
         InputStream in = null;
@@ -77,7 +74,6 @@ public class EFile extends AbstractResource
         return in;
     }
     
-    @Override
     public OutputStream createOutputStream(boolean append) throws IOException
     {
         OutputStream out = null;
@@ -85,7 +81,6 @@ public class EFile extends AbstractResource
         return out;
     }
     
-    @Override
     public String readText(ITextRegion range) throws IOException
     {
         try
@@ -100,19 +95,16 @@ public class EFile extends AbstractResource
         return null;
     }
     
-    @Override
     public long getAvailableBytes() throws IOException
     {
         return Long.parseLong(IDEResourceInfoUtils.getSizeString(file));
     }
     
-    @Override
     public boolean supportsDelete()
     {
         return true;
     }
     
-    @Override
     public void delete() throws IOException, UnsupportedOperationException
     {
         try

@@ -34,7 +34,6 @@ public class MainTab extends AbstractLaunchConfigurationTab
     
     private ModifyListener listener = null;
     
-    @Override
     public void createControl(Composite parent)
     {
         listener = new ModifyListener() {
@@ -93,13 +92,11 @@ public class MainTab extends AbstractLaunchConfigurationTab
         });
     }
     
-    @Override
     public void setDefaults(ILaunchConfigurationWorkingCopy configuration)
     {
         configuration.setAttribute(Constants.LAUNCH_FILE, "");
     }
     
-    @Override
     public void initializeFrom(ILaunchConfiguration configuration)
     {
         try
@@ -119,13 +116,11 @@ public class MainTab extends AbstractLaunchConfigurationTab
         }
     }
     
-    @Override
     public void performApply(ILaunchConfigurationWorkingCopy configuration)
     {
         configuration.setAttribute(Constants.LAUNCH_FILE, textFile.getText());
     }
     
-    @Override
     public String getName()
     {
         return "Main";

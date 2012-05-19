@@ -16,19 +16,16 @@ public class OutputStreamCodeWriterFactory implements IObjectCodeWriterFactory
         this.out = out;
     }
     
-    @Override
     public IObjectCodeWriter getWriter(ICompilationContext context)
     {
         return new OutputStreamCodeWriter(out);
     }
     
-    @Override
     public void closeObjectWriters() throws IOException
     {
         
     }
     
-    @Override
     public void deleteOutput() throws IOException
     {
         

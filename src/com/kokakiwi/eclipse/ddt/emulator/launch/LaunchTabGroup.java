@@ -8,7 +8,6 @@ import com.kokakiwi.eclipse.ddt.emulator.launch.tabs.MainTab;
 
 public class LaunchTabGroup extends AbstractLaunchConfigurationTabGroup
 {
-    @Override
     public void createTabs(ILaunchConfigurationDialog dialog, String mode)
     {
         setTabs(new ILaunchConfigurationTab[] { new MainTab() });

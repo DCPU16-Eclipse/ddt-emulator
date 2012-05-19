@@ -29,7 +29,6 @@ import de.codesourcery.jasm16.compiler.io.ByteArrayObjectCodeWriterFactory;
 public class DCPULauncher implements ILaunchConfigurationDelegate
 {
     
-    @Override
     public void launch(ILaunchConfiguration config, String mode,
             ILaunch launch, IProgressMonitor monitor) throws CoreException
     {

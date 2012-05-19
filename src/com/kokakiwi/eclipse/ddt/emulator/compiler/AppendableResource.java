@@ -23,37 +23,31 @@ public class AppendableResource extends AbstractResource
         this.identifier = identifier;
     }
     
-    @Override
     public String getIdentifier()
     {
         return identifier;
     }
     
-    @Override
     public boolean isSame(IResource other)
     {
         return false;
     }
     
-    @Override
     public InputStream createInputStream() throws IOException
     {
         return IOUtils.toInputStream(sb.toString());
     }
     
-    @Override
     public OutputStream createOutputStream(boolean append) throws IOException
     {
         return new StringOutputStream();
     }
     
-    @Override
     public String readText(ITextRegion range) throws IOException
     {
         return range.apply(sb.toString());
     }
     
-    @Override
     public long getAvailableBytes() throws IOException
     {
         return sb.toString().getBytes().length;
@@ -66,7 +60,11 @@ public class AppendableResource extends AbstractResource
             sb.append(IOUtils.toString(file.getContents()));
             sb.append('\n');
         }
-        catch (IOException | CoreException e)
+        catch (IOException e)
+        {
+            e.printStackTrace();
+        }
+        catch (CoreException e)
         {
             e.printStackTrace();
         }

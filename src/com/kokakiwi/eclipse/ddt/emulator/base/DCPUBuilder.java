@@ -93,7 +93,6 @@ public class DCPUBuilder extends IncrementalProjectBuilder
             this.monitor = monitor;
         }
         
-        @Override
         public boolean visit(IResourceDelta delta) throws CoreException
         {
             int deltaKind = delta.getKind();
