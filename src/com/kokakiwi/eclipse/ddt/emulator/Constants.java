@@ -22,4 +22,10 @@ public class Constants
      */
     
     public final static String BUILD_DIR                    = "build";
+    
+    /*
+     * Preferences
+     */
+    
+    public final static String INCLUDES_DIR                 = "includes.dir";
 }

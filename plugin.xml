@@ -86,6 +86,20 @@
             type="com.kokakiwi.eclipse.ddt.emulator.launch">
       </launchConfigurationTabGroup>
    </extension>
+   <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+            class="com.kokakiwi.eclipse.ddt.emulator.preferences.MainPreferencesPage"
+            id="com.kokakiwi.eclipse.ddt.emulator.preferences.MainPreferencesPage"
+            name="DDT Preferences">
+      </page>
+   </extension>
+   <extension
+         point="org.eclipse.core.runtime.preferences">
+      <initializer
+            class="com.kokakiwi.eclipse.ddt.emulator.preferences.PreferenceInitializer">
+      </initializer>
+   </extension>
 
 
 </plugin>

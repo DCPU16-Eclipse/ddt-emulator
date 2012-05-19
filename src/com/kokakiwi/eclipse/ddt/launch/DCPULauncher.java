@@ -12,6 +12,7 @@ import org.eclipse.core.runtime.Path;
 import org.eclipse.debug.core.ILaunch;
 import org.eclipse.debug.core.ILaunchConfiguration;
 import org.eclipse.debug.core.model.ILaunchConfigurationDelegate;
+import org.eclipse.jface.preference.IPreferenceStore;
 import org.eclipse.ui.console.ConsolePlugin;
 import org.eclipse.ui.console.IConsole;
 import org.eclipse.ui.console.IConsoleManager;
@@ -19,6 +20,7 @@ import org.eclipse.ui.console.IOConsole;
 import org.eclipse.ui.console.MessageConsole;
 
 import com.kokakiwi.dcpu.emulator.swt.CoreEmulator;
+import com.kokakiwi.eclipse.ddt.emulator.Activator;
 import com.kokakiwi.eclipse.ddt.emulator.Constants;
 import com.kokakiwi.eclipse.ddt.emulator.compiler.CoreCompiler;
 
@@ -31,6 +33,8 @@ public class DCPULauncher implements ILaunchConfigurationDelegate
     public void launch(ILaunchConfiguration config, String mode,
             ILaunch launch, IProgressMonitor monitor) throws CoreException
     {
+        IPreferenceStore store = Activator.getDefault().getPreferenceStore();
+        
         // Get file
         String workspaceFile = config.getAttribute(Constants.LAUNCH_FILE, "");
         if ((workspaceFile == null) || (workspaceFile.trim().length() < 1))
@@ -62,7 +66,8 @@ public class DCPULauncher implements ILaunchConfigurationDelegate
         IProject project = file.getProject();
         if (project != null)
         {
-            IFolder includesFolder = project.getFolder("includes");
+            IFolder includesFolder = project.getFolder(store
+                    .getString(Constants.INCLUDES_DIR));
             compiler.include(includesFolder, true);
         }
         
