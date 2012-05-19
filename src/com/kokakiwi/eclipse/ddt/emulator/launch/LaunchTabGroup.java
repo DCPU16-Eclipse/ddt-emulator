@@ -4,18 +4,13 @@ import org.eclipse.debug.ui.AbstractLaunchConfigurationTabGroup;
 import org.eclipse.debug.ui.ILaunchConfigurationDialog;
 import org.eclipse.debug.ui.ILaunchConfigurationTab;
 
+import com.kokakiwi.eclipse.ddt.emulator.launch.tabs.MainTab;
+
 public class LaunchTabGroup extends AbstractLaunchConfigurationTabGroup
 {
-    
-    public LaunchTabGroup()
-    {
-        
-    }
-    
     @Override
     public void createTabs(ILaunchConfigurationDialog dialog, String mode)
     {
-        setTabs(new ILaunchConfigurationTab[] {});
+        setTabs(new ILaunchConfigurationTab[] { new MainTab() });
     }
-    
 }
